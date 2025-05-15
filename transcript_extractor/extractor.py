@@ -110,7 +110,10 @@ def save_to_markdown(metadata, transcript):
     time_str = now.strftime("%Y%m%d_%H%M%S")
     title_sanitized = sanitize_filename(metadata['title'])
     file_name = f"{time_str}_{title_sanitized}.md"
-    with open(f"output/{file_name}", "w", encoding="utf-8") as f:
+    if not os.path.exists("../output"):
+        os.mkdir("../output")
+
+    with open(f"../output/{file_name}", "w", encoding="utf-8") as f:
         f.write(f"# {metadata['title']}\n\n")
         f.write(f"**채널명:** {metadata['channel']}\n\n")
         f.write(f"**URL:** {metadata['url']}\n\n")
@@ -135,7 +138,7 @@ def main():
 
     metadata = get_video_metadata(video_id)
     transcript = get_transcript(video_id, translate=translate)
-    print(metadata)
+    # print(metadata)
     if transcript:
         # 메타데이터가 None인 경우 기본값 사용
         if metadata is None:
