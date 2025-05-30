@@ -1,19 +1,8 @@
-[tool.poetry]
-name = "transcript-extractor"
+[project]
+name = "inspire12-youtube-transcript"
 version = "0.1.0"
-description = "유튜브 트랜스크립트를 추출하는 도구입니다."
-authors = ["Your Name <your.email@example.com>"]
-packages = [{ include = "transcript_extractor" }]
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
 
-[tool.poetry.dependencies]
-python = "^3.7"
-youtube-transcript-api = "^0.4.0"
-pytube = "^15.0.0"  # 최신 버전에 맞게 수정하세요.
-googletrans = "4.0.0-rc1"
-
-[tool.poetry.scripts]
-extract-transcript = "transcript_extractor.extractor:main"
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
